@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 12" width="1280" height="12" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <pattern id="hz" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="24" fill="#FFB020"/><rect x="12" width="12" height="24" fill="#1A1614"/>
+    </pattern>
+    <linearGradient id="fade"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.15" stop-color="#fff"/><stop offset="0.85" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <mask id="m"><rect width="1280" height="12" fill="url(#fade)"/></mask>
+  </defs>
+  <rect width="1280" height="12" rx="6" fill="url(#hz)" mask="url(#m)"/>
+</svg>

@@ -1,0 +1,29 @@
+name: Prose lint
+
+on:
+  pull_request:
+    paths: ["profile/**", ".vale.ini", ".vale/**", ".github/workflows/vale.yml"]
+  push:
+    branches: [main]
+    paths: ["profile/**", ".vale.ini", ".vale/**", ".github/workflows/vale.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  vale:
+    name: Vale (Google style)
+    runs-on: ubuntu-latest
+    env:
+      VALE_VERSION: 3.24.0
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Vale
+        run: |
+          curl -sSfL "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz" \
+            | tar -xz -C "$RUNNER_TEMP" vale
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Download the Google style
+        run: vale sync
+      - name: Lint the profile README
+        run: vale --minAlertLevel=warning profile/README.md

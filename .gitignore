@@ -1,0 +1,4 @@
+# Packages downloaded by `vale sync`; only the shared vocabulary is tracked.
+.vale/styles/*
+!.vale/styles/config/
+.DS_Store
